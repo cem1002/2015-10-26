@@ -6,14 +6,14 @@ ci_sigma_unknown_1 <- function(samples, confidence = 0.95) {
   z <- -qnorm((1 - confidence)/2)
   means <- sapply(samples, mean)
   sds <- sapply(samples, sd)
-  err <- sds/sqrt(n)
+  err <- sds/sqrt(size)
   return(data_frame(sample_no = 1:length(samples),
                     sample_means = means,
                     ymin = means - z*err,
                     ymax = means + z*err))
 }
 
-k <- 100
+k <- 10000
 n <- 20
 mu <- 10
 sigma <- 5

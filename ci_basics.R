@@ -14,7 +14,7 @@ sigma <- 5
 
 pop + 
   geom_line(aes(x=x, y=density), data=norm_dens(mu, sigma/sqrt(30))) +
-  geom_line(aes(x=x, y=density), data=norm_dens(mu, sigma/sqrt(60)))
+  geom_line(aes(x=x, y=density), data=norm_dens(mu, sigma/sqrt(120)))
 
 
 

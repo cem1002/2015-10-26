@@ -2,17 +2,17 @@ library(dplyr)
 library(ggplot2)
 
 ci_sigma_known <- function(samples, true_sd, confidence = 0.95) {
-  size <- sapply(samples, length)
-  pm_val <- -qnorm((1 - confidence)/2)
-  means <- sapply(samples, mean)
-  err <- true_sd/sqrt(n)
+  size <- sapply(samples, length) # Vector of sample sizes n
+  pm_val <- -qnorm((1 - confidence)/2) # Constant 1.96 approx
+  means <- sapply(samples, mean) # Vector of sample averages
+  err <- true_sd/sqrt(size)
   return(data_frame(sample_no = 1:length(samples),
                     sample_means = means,
                     ymin = means - pm_val*err,
                     ymax = means + pm_val*err))
 }
 
-k <- 100
+k <- 10000
 n <- 20
 mu <- 10
 sigma <- 5

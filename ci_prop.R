@@ -21,8 +21,11 @@ n <- 92
 
 p <- 0.2
 
-bern_data <- replicate(k, data_frame(sample(c(1,0), size = n, replace = TRUE, 
-                                 prob = c(p, 1-p))))
+bern_data <- replicate(k, 
+                       data_frame(sample(c(1,0), 
+                                         size = n, 
+                                         replace = TRUE, 
+                                         prob = c(p, 1-p))))
 
 ci <- ci_prop(bern_data)
 

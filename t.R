@@ -16,8 +16,6 @@ t_dens <- function(df) {
 ggplot(aes(x=x, y=density), data=t_dens(5)) + geom_line()
 
 n01 + 
-  geom_line(aes(x=x, y=density), data=t_dens(5), color=2) +
-  geom_line(aes(x=x, y=density), data=t_dens(10), color=3) +
-  geom_line(aes(x=x, y=density), data=t_dens(30), color=5)
+    geom_line(aes(x=x, y=density), data=t_dens(Inf), color=5)
   
 
