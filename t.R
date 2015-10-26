@@ -1,3 +1,6 @@
+library(dplyr)
+library(ggplot2)
+
 norm_dens <- function(mu = 0, sigma = 1) {
   x <- seq(mu - 5*sigma, mu + 5*sigma, length.out = 1000)
   data_frame(x=x, density=dnorm(x, mu, sigma))
