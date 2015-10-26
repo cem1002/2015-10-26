@@ -13,9 +13,13 @@ ci_prop <- function(samples, confidence = 0.95) {
                     ymax = means + z*err))
 }
 
-k <- 100
-n <- 100
-p <- 0.3
+k <- 10000
+n <- 92
+
+# 2spooky4me
+# n <- 97
+
+p <- 0.2
 
 bern_data <- replicate(k, data_frame(sample(c(1,0), size = n, replace = TRUE, 
                                  prob = c(p, 1-p))))
@@ -23,6 +27,8 @@ bern_data <- replicate(k, data_frame(sample(c(1,0), size = n, replace = TRUE,
 ci <- ci_prop(bern_data)
 
 covered <- covered <- ci$ymin < p & ci$ymax > p
+
+mean(covered)
 
 
 ggplot(ci, aes(x=sample_no, y=sample_means, ymin=ymin, ymax=ymax)) +
